@@ -1,0 +1,62 @@
+{
+  "name": "focus-mode",
+  "displayName": "Focus Mode",
+  "description": "Three commands to help you focus on the code that matters",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "focusMode.foldOthers",
+        "title": "Focus Mode: Fold All Except Current Function"
+      },
+      {
+        "command": "focusMode.highlightUsages",
+        "title": "Focus Mode: Highlight All Usages of Selected Word"
+      },
+      {
+        "command": "focusMode.nextFunction",
+        "title": "Focus Mode: Jump to Next Function"
+      },
+      {
+        "command": "focusMode.prevFunction",
+        "title": "Focus Mode: Jump to Previous Function"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "focusMode.nextFunction",
+        "key": "alt+down",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "focusMode.prevFunction",
+        "key": "alt+up",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "focusMode.foldOthers",
+        "key": "alt+f",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "focusMode.highlightUsages",
+        "key": "alt+h",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
